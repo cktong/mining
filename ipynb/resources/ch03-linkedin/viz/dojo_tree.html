@@ -1,0 +1,481 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+		"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<title>Clustered Contacts</title>
+    <link rel="stylesheet" 
+        href="http://ajax.googleapis.com/ajax/libs/dojo/1.5/dojo/resources/dojo.css">
+    <link rel="stylesheet" 
+        href="http://ajax.googleapis.com/ajax/libs/dojo/1.5/dijit/themes/claro/claro.css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.5/dojo/dojo.xd.js" 
+        type="text/javascript" djConfig="parseOnLoad:true"></script>
+
+	<script language="JavaScript" type="text/javascript">
+		dojo.require("dojo.data.ItemFileReadStore");
+		dojo.require("dijit.Tree");
+		dojo.require("dojo.parser");
+	</script>
+
+    <script language="JavaScript" type="text/javascript">
+        var data = {
+    "items": [
+        {
+            "name": "Analyst, Business (3)", 
+            "children": [
+                {
+                    "name": "Deidre Quan"
+                }, 
+                {
+                    "name": "Sylvia Tang"
+                }, 
+                {
+                    "name": "Simon Tiu"
+                }
+            ]
+        }, 
+        {
+            "name": "Recruiter (2)", 
+            "children": [
+                {
+                    "name": "Susan Ruan"
+                }, 
+                {
+                    "name": "Christian Bada"
+                }
+            ]
+        }, 
+        {
+            "name": "Research (6)", 
+            "children": [
+                {
+                    "name": "Cheng Lu"
+                }, 
+                {
+                    "name": "Rosa Ma"
+                }, 
+                {
+                    "name": "Winnie Ip"
+                }, 
+                {
+                    "name": "Xiangjiu Wang"
+                }, 
+                {
+                    "name": "Jonathan Wong"
+                }, 
+                {
+                    "name": "Candace Wong-Sing"
+                }
+            ]
+        }, 
+        {
+            "name": "Development, Product (2)", 
+            "children": [
+                {
+                    "name": "Tim McAtee"
+                }, 
+                {
+                    "name": "Bethany Johnson"
+                }
+            ]
+        }, 
+        {
+            "name": "Engineer, Software (3)", 
+            "children": [
+                {
+                    "name": "Anh Mai"
+                }, 
+                {
+                    "name": "Howard Haotian Bai"
+                }, 
+                {
+                    "name": "Omar Rehmane"
+                }
+            ]
+        }, 
+        {
+            "name": "Operations, Manager,, Business (2)", 
+            "children": [
+                {
+                    "name": "Molly Amble Kihanya"
+                }, 
+                {
+                    "name": "John Holgate"
+                }
+            ]
+        }, 
+        {
+            "name": "Designer (3)", 
+            "children": [
+                {
+                    "name": "Darren Chan"
+                }, 
+                {
+                    "name": "Francis Chen"
+                }, 
+                {
+                    "name": "Jessica Gross"
+                }
+            ]
+        }, 
+        {
+            "name": "Business (3)", 
+            "children": [
+                {
+                    "name": "Deidre Quan"
+                }, 
+                {
+                    "name": "John Holgate"
+                }, 
+                {
+                    "name": "Simon Tiu"
+                }
+            ]
+        }, 
+        {
+            "name": "Associate (21)", 
+            "children": [
+                {
+                    "name": "Jessica Lukrich"
+                }, 
+                {
+                    "name": "Jonas Andersen"
+                }, 
+                {
+                    "name": "Cathy Hwang"
+                }, 
+                {
+                    "name": "Cecilia Yu Chung Chang"
+                }, 
+                {
+                    "name": "Jonas Andersen"
+                }, 
+                {
+                    "name": "Cathy Hwang"
+                }, 
+                {
+                    "name": "Cecilia Yu Chung Chang"
+                }, 
+                {
+                    "name": "Phi Nguyen"
+                }, 
+                {
+                    "name": "Alexander Ramirez"
+                }, 
+                {
+                    "name": "Jonas Andersen"
+                }, 
+                {
+                    "name": "Cathy Hwang"
+                }, 
+                {
+                    "name": "Cecilia Yu Chung Chang"
+                }, 
+                {
+                    "name": "Jonas Andersen"
+                }, 
+                {
+                    "name": "Kevin Chuc"
+                }, 
+                {
+                    "name": "Cathy Hwang"
+                }, 
+                {
+                    "name": "Cecilia Yu Chung Chang"
+                }, 
+                {
+                    "name": "Miranda Yanglei Pan"
+                }, 
+                {
+                    "name": "Jonas Andersen"
+                }, 
+                {
+                    "name": "Cathy Hwang"
+                }, 
+                {
+                    "name": "Jennifer Chen"
+                }, 
+                {
+                    "name": "Cecilia Yu Chung Chang"
+                }
+            ]
+        }, 
+        {
+            "name": "Marketing (9)", 
+            "children": [
+                {
+                    "name": "Deanne Chen"
+                }, 
+                {
+                    "name": "Tiffany Chiao"
+                }, 
+                {
+                    "name": "Connie Phu"
+                }, 
+                {
+                    "name": "Elizabeth Sur"
+                }, 
+                {
+                    "name": "Summer Sang-a Kim"
+                }, 
+                {
+                    "name": "Kylie Foo"
+                }, 
+                {
+                    "name": "George Nguyen"
+                }, 
+                {
+                    "name": "Phi Nguyen"
+                }, 
+                {
+                    "name": "Tiffany Chiao"
+                }
+            ]
+        }, 
+        {
+            "name": "Investment, Analyst (3)", 
+            "children": [
+                {
+                    "name": "Kobe Li"
+                }, 
+                {
+                    "name": "Frances Bo"
+                }, 
+                {
+                    "name": "Daniel Ma"
+                }
+            ]
+        }, 
+        {
+            "name": "Director (5)", 
+            "children": [
+                {
+                    "name": "Marjorie DeGraca"
+                }, 
+                {
+                    "name": "Clare Tong"
+                }, 
+                {
+                    "name": "Jesse Krieger"
+                }, 
+                {
+                    "name": "Kylie Foo"
+                }, 
+                {
+                    "name": "Clare Tong"
+                }
+            ]
+        }, 
+        {
+            "name": "President (4)", 
+            "children": [
+                {
+                    "name": "James Curleigh"
+                }, 
+                {
+                    "name": "Larry Maye"
+                }, 
+                {
+                    "name": "Gillian Wang"
+                }, 
+                {
+                    "name": "Chip Bergh"
+                }
+            ]
+        }, 
+        {
+            "name": "Assistant, Teacher (2)", 
+            "children": [
+                {
+                    "name": "Wendy Li"
+                }, 
+                {
+                    "name": "Jana Hopkins"
+                }
+            ]
+        }, 
+        {
+            "name": "Analyst (5)", 
+            "children": [
+                {
+                    "name": "Vineet Baid"
+                }, 
+                {
+                    "name": "Leo Wong"
+                }, 
+                {
+                    "name": "Devon Jue"
+                }, 
+                {
+                    "name": "Sylvia Tang"
+                }, 
+                {
+                    "name": "Jenny Jiang"
+                }
+            ]
+        }, 
+        {
+            "name": "Product, Management (2)", 
+            "children": [
+                {
+                    "name": "George Nguyen"
+                }, 
+                {
+                    "name": "Phi Nguyen"
+                }
+            ]
+        }, 
+        {
+            "name": "Consultant (3)", 
+            "children": [
+                {
+                    "name": "Jay Tong"
+                }, 
+                {
+                    "name": "Janaki Gunnam"
+                }, 
+                {
+                    "name": "Jeff Harter"
+                }
+            ]
+        }, 
+        {
+            "name": "Analysis (2)", 
+            "children": [
+                {
+                    "name": "Winnie Ip"
+                }, 
+                {
+                    "name": "Michael Goico"
+                }
+            ]
+        }, 
+        {
+            "name": "Account, Associate (2)", 
+            "children": [
+                {
+                    "name": "Ryan Shi"
+                }, 
+                {
+                    "name": "Jenny Tang"
+                }
+            ]
+        }, 
+        {
+            "name": "Operations (4)", 
+            "children": [
+                {
+                    "name": "Brian Fukumoto"
+                }, 
+                {
+                    "name": "Dawn Miedler"
+                }, 
+                {
+                    "name": "Justin Yu"
+                }, 
+                {
+                    "name": "Zhewen(Wendy) Hu"
+                }
+            ]
+        }, 
+        {
+            "name": "Researcher (3)", 
+            "children": [
+                {
+                    "name": "Edward Kuang"
+                }, 
+                {
+                    "name": "Kareem Ascha"
+                }, 
+                {
+                    "name": "Jonathan Gu"
+                }
+            ]
+        }, 
+        {
+            "name": "Teacher (2)", 
+            "children": [
+                {
+                    "name": "Wendy Li"
+                }, 
+                {
+                    "name": "Bill Hiddleson"
+                }
+            ]
+        }, 
+        {
+            "name": "Manager (15)", 
+            "children": [
+                {
+                    "name": "Hyunhee (Ryan) Cho"
+                }, 
+                {
+                    "name": "Henry Chen"
+                }, 
+                {
+                    "name": "Thomas Lin"
+                }, 
+                {
+                    "name": "Hyunhee (Ryan) Cho"
+                }, 
+                {
+                    "name": "Jonathan Lee"
+                }, 
+                {
+                    "name": "Thomas Lin"
+                }, 
+                {
+                    "name": "Hyunhee (Ryan) Cho"
+                }, 
+                {
+                    "name": "Charlie Wong"
+                }, 
+                {
+                    "name": "Thomas Lin"
+                }, 
+                {
+                    "name": "Hyunhee (Ryan) Cho"
+                }, 
+                {
+                    "name": "Thomas Lin"
+                }, 
+                {
+                    "name": "Yeqing (Ching-Ching) Liu"
+                }, 
+                {
+                    "name": "Hyunhee (Ryan) Cho"
+                }, 
+                {
+                    "name": "Charlie Nguyen"
+                }, 
+                {
+                    "name": "Thomas Lin"
+                }
+            ]
+        }, 
+        {
+            "name": "Student, Graduate (2)", 
+            "children": [
+                {
+                    "name": "Dennis Wai"
+                }, 
+                {
+                    "name": "Alan Huynh"
+                }
+            ]
+        }
+    ], 
+    "label": "name"
+}; //substituted by Python by XXX
+    </script>
+
+</head>
+<body class="claro">
+	<div dojoType="dojo.data.ItemFileReadStore" jsId="jobsStore"
+		data="data"></div>
+
+	<div dojoType="dijit.Tree" id="mytree" store="jobsStore"
+		label="Clustered Contacts" openOnClick="true">
+	</div>
+</body>
+</html>
